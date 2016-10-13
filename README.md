@@ -1,8 +1,6 @@
 # Hallmark
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hallmark`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem presents implementation required interface for Ruby
 
 ## Installation
 
@@ -22,7 +20,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+# example interface class
+class InterfaceClass
+  def self.test1; end
+  def self.test2(arg1, arg2 = nil, arg3: nil); end
+  def test3; end
+  def test4(arg1, arg2 = nil, arg3: nil); end
+end
+
+require 'hallmark'
+
+class Test1
+  hallmarked InterfaceClass # implementation required all methods 
+end
+
+class Test2
+  hallmarked InterfaceClass, only: [:test2] # implementation required test2 singleton method
+end
+
+class Test3
+  hallmarked InterfaceClass, except: [:test3] # implementation required all methods, except test3 instance method
+end
+
+class Test4
+  hallmarked_instance_methods InterfaceClass, only: [:test4] # implementation required test4 instance method
+end
+```
 
 ## Development
 
@@ -32,7 +56,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hallmark. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/takkjoga/hallmark. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
