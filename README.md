@@ -1,5 +1,7 @@
 # Hallmark
 
+[![Build Status](https://travis-ci.org/takkjoga/hallmark.svg?branch=master)](https://travis-ci.org/takkjoga/hallmark)
+
 This gem presents implementation required interface for Ruby
 
 ## Installation
