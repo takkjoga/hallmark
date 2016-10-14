@@ -43,4 +43,4 @@ module Hallmark
   end
 end
 
-Module.include(Hallmark)
+Module.send(:include, Hallmark)
